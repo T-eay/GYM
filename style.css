@@ -1,0 +1,721 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+span{
+    color: red;
+}
+@mixin grid($val){
+    display:grid;
+    grid-template-colums: repeat(auto-fit, minmax($val, 1fr));
+    gap:1.5rem;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+    &::-webkit-scrollbar-track{
+        background: #000;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: red;
+    }
+}
+
+body{
+   background: #000; 
+}
+section{
+    padding: 5rem 9%;
+}
+.heading{
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.heading::before{
+    content: '';
+    position: absolute;
+    top: 50%;left: 0;
+    transform: translateY(-50%);
+    height: .1rem;
+    width: 100%;
+    background: azure;
+    z-index: -1;
+}
+
+.heading span{
+    font-size: 3rem;
+    color: red;
+    background: #000;
+    padding: .5rem 1.5rem;
+    border: .1rem solid grey ;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    padding-right: 3rem;
+    background: linear-gradient(130deg, red 93%, rgb(255,255,255,0.0) 10%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.7rem;
+    
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.header{
+    position: fixed;
+    top: 0;left: 0;right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    background: #000;
+    z-index: 10000;
+
+    .logo{
+        font-weight: bolder;
+        color: #fff;
+        font-size: 3rem;
+
+    }
+    
+    .navbar a{
+        display:inline-block ;
+        padding: 1.5rem 2rem;
+        font-size: 1.7rem;
+        color: #fff;
+        border-radius: 5px;
+      
+
+        &:hover{
+            background: red;
+        }
+    }
+}
+
+#menu-btn{
+ font-size: 3rem;
+ color: #fff;
+ cursor: pointer;  
+ color: red; 
+ display: none;
+}
+
+.home{
+   padding: 0;
+   margin-top: 6.5rem; 
+}
+   .home .slide{
+    min-height:90vh;
+    
+    background-size: cover !important;
+    background-position: center !important;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+   }
+  
+    .home .slide .content{
+        width: 60rem;
+    }
+       .home .slide .content span{
+        font-size: 2rem;
+        color: red;
+        display: block;
+        }
+        .home .slide .content h3{
+            font-size: 5rem;
+            color: #fff;
+            padding: 1rem 0;
+        }
+    .swiper-pagination-bullet{
+        height: 2rem;
+        width: 2rem;
+        background: #fff;
+
+        &.swiper-pagination-bullet-active{
+background: red;
+        }
+}    
+
+.about{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8rem;  
+}
+.about .content{
+    flex: 1 1 42rem;
+}
+.about .content span{
+    font-size: 2rem;
+}
+.about .content .title{
+    font-size: 4rem;
+    color: #fff;
+    margin-top: .5rem;
+}
+
+.about .content .box-container{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   margin-top: 1rem; 
+}
+.about .content .box-container .box{
+    flex: 1 1 20rem;
+}
+.about .content .box-container .box p{
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    padding: 1rem 0;
+    line-height: 2;
+}
+.about .content .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+}
+.about .content .box-container .box i{
+    padding-right: 1.5rem;
+    color: red;
+}
+.about .image{
+    flex: 1 1 42.5rem;
+    position: relative;
+
+ 
+
+   
+}
+
+.about .image::before,
+.about .image::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background: red;
+    height: 7rem;
+    width:10rem;
+}
+
+.about .image::before{
+    top: 0;left: 0;  
+  }
+  .about .image::after{
+      bottom: 0;right: 0;  
+    }
+
+
+.about .image img{
+    width: 100%;
+    padding: 2rem;
+}
+
+.features .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap:1.5rem;
+}
+
+.features .box-container .box{
+    background:#000;
+
+    &:hover .image img{
+        transform: scale(1.1);
+    }
+}
+
+.features .box-container .box .image{
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
+.features .box-container .box .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.features .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+}
+
+.features .box-container .box .content img{
+    height: 9rem;
+    margin-bottom: 1rem;
+    filter: invert(1);
+}
+.features .box-container .box .content h3{
+    font-size: 2rem;
+    color: red;
+}
+.features .box-container .box .content p{
+   line-height: 2;
+   font-size: 1.5rem;
+   color: #fff;
+   padding: 1rem 0;
+}
+
+
+.pricing{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap:1.5rem;
+}
+.pricing .information span{
+    font-size: 2rem;
+    color: red;
+}
+.pricing .information h3{
+    font-size: 4rem;
+    margin-top: .5rem;
+    color: #fff;
+}
+.pricing .information p{
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 2;
+    padding: 1rem 0;
+}
+.pricing .information i{
+  padding-right: 1rem;
+  color: red;
+}
+
+.pricing .plan{
+    text-align: center;
+    padding: 2rem;
+
+    &.basic{
+      background: linear-gradient(130deg, rgb(255,255,255, .1) 93%, rgb(255,255,255,0.0) 93%);
+    }
+}
+.pricing .plan h3{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #fff;
+}
+.pricing .plan .price{
+    font-size: 5rem;
+    font-weight: bolder;
+    color: red;
+}
+.pricing .plan .price span{
+    color: #fff;
+    font-size: 2rem;
+}
+
+.pricing p{
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 2;
+    padding: 1rem 0; 
+}
+.pricing i{
+    padding-right: 1rem;
+    color: red;
+}
+.pricing .plan .list{
+    padding: 1rem 0;
+}
+.pricing .plan .list p{
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 2;
+    padding: 1rem 0;
+}
+.pricing .plan .list i{
+    padding-right: 1rem;
+    color: red;
+}
+
+.trainers .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap:1.5rem;
+}
+
+.trainers .box-container .box{
+    height: 40rem;
+    overflow: hidden;
+    position: relative;
+
+    &:hover .content{
+        transform:translateY(0) ;
+    }
+}
+
+.trainers .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.trainers .box-container .box .content{
+position: absolute;
+bottom: 0;left: 0;right: 0;
+background: black;
+padding: 2rem;
+transform: translateY(5rem);
+}
+.trainers .box-container .box .content span{
+    font-size: 1.5rem;
+    color: red;
+}
+
+.trainers .box-container .box .content h3{
+    font-size: 2rem;
+    color: #fff;
+    padding-top: .5rem;
+}
+.trainers .box-container .box .content .share{
+    padding-top: 2rem;
+    margin-top: 1.5rem;
+    border-top: .1rem solid red;
+}
+
+.trainers .box-container .box .content .share a{
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 1rem;
+
+    &:hover{
+        color: red;
+    }
+}
+
+.banner{
+    background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(images/back3.avif) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+.banner span{
+    font-size: 2rem;
+    color: red;
+}
+.banner h3{
+    font-size: 3.5rem;
+    padding-top: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+.banner p{
+    margin: 1rem auto;
+    max-width: 60rem;
+    font-size: 1.5rem;
+    color: rgb(255,255,255, .3);
+    line-height: 2;
+}
+
+.review{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.review .information{
+   flex: 1 1 35rem; 
+}
+.review .information span{
+    font-size: 2rem;
+    color: red;
+}
+.review .information h3{
+    font-size: 3rem;
+    color: #fff;
+    padding-top: 1rem;
+}
+.review .information p{
+   font-size: 1.5rem;
+   line-height: 2;
+   color: rgb(255,255,255, .3); 
+   padding: 1rem 0;
+}
+.review .review-slider{
+    flex: 1 1 60rem;
+}
+.review .slide{
+    background: linear-gradient(130deg, rgb(255,255,255, .1) 93%, rgb(255,255,255,0.0) 93%);
+    padding: 2rem 3rem;
+}
+
+.review .slide p{
+   font-size: 1.5rem;
+   line-height: 2;
+   color: rgb(255,255,255, .6); 
+}
+.review .slide .user{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+.review .slide .user h3{
+    font-size: 2rem;
+    color: #fff;
+}
+.review .slide .user span{
+    color: red;
+    font-size: 1.5rem;
+}
+.review .slide .user i{
+    font-size: 5rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    color: red;
+}
+
+.review .slide .user img{
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 0 2rem;
+    }
+    section{
+        padding: 3rem 2rem;
+    }
+    .home .slide{
+        padding: 2rem 5%;
+    }
+    .home .slide .content{
+     width: 50rem;   
+    }
+    .home .slide .content h3{
+        font-size: 4rem;
+    }
+}
+@media(max-width:768px){
+    #menu-btn{
+        
+        display: inline-block;
+
+        &.bx bx-x{
+            transform: rotate(180deg);
+        }
+       }
+.header{
+    padding: 2rem;
+}
+
+.header .navbar{
+    position: absolute;
+    top:99% ;left: 0;right: 0;
+    background: rgb(255, 255, 255 , .2);
+clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+&.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}}
+
+ .header .navbar a{
+    display: block;
+    font-size: 2rem;
+}
+.about{
+    gap: 3rem;
+}
+.about .image{
+   margin-top: 5rem; 
+}
+.about .content .title{
+    font-size: 3rem;
+}
+}
+
+.footer{
+    background:rgb(255, 255, 255,.1);
+}
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3{
+    color: red;
+    font-size: 2.2rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    color: rgb(255,255,255, .6);
+}
+.footer .box-container .box a{
+    color: rgb(255,255,255, .6);
+    font-size: 1.4rem;
+    display: block;
+    padding: 1rem 0;
+    
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color: #fff;
+}
+
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+    
+}
+
+.footer .credit{
+    text-align: center;
+    color: rgb(255,255,255, .6);
+    border-top: .1rem solid red;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+.newsletter{
+    padding: 6rem 2rem;
+    text-align: center;
+    background: url(images/news.jfif) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.newsletter h3{
+    color: red;
+    font-size: 3rem;
+}
+
+.newsletter p{
+    color: rgb(255,255,255, .6);
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.footer  form{
+    margin: 1rem auto;
+    max-width: 60rem;
+    height: 3.5rem;
+    display: flex;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    overflow: hidden;
+    border-radius: 5rem;
+}
+
+.footer  form input[type="email"]{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: grey;
+    text-transform: none;
+    padding: 0 2rem;
+}
+
+
+.footer  form input[type="submit"]{
+    height: 100%;
+    width: 17rem;
+    font-size: 1.7rem;
+    color: white;
+    background: red;
+    cursor: pointer;
+}
+
+
+.footer  form input[type="submit"]:hover{
+    background: var(--yellow);
+}
+
+
+
+
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
+
+
+
+.blogs .slide{
+    background: rgb(255, 255, 255,.1);
+    margin-bottom: 7rem;
+
+    &:hover .image video{
+transform: scale(1.1);
+    }
+}
+.blogs .slide .content h3{
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1.5;
+}
+.blogs .slide .content p{
+    font-size: 1.5rem;
+    color: rgb(255,255,255, .6);
+    line-height: 2;
+    padding: 1rem 0;
+}
+.blogs .slide .content{
+    padding: 2rem;
+}
+.blogs .slide .content .link{
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.blogs .slide .content span{
+    color: #fff;
+    padding: 0 1rem;
+}
+.blogs .slide .content .link a{
+    color: red;
+
+    &:hover{
+        color: #fff;
+    }
+}
+.blogs .slide .image{
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
+.blogs .slide .image video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
